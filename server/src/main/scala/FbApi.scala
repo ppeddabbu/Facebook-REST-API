@@ -16,14 +16,13 @@ import spray.routing._
 import spray.http.StatusCodes
 
 import FbDesign._
-
+/*
+ * main API file, can be extended to add more features in future
+*/
 object FbApi extends App{
   
-  //def  main(args: Array[String]) {
-    
-
   implicit  val actorSystem= ActorSystem("facebookAPImodel")
-  //implicit val executionContext = actorSystem.dispatcher
+
   val fbApiHandler=actorSystem.actorOf(Props(new FbHTTPRest()), "FbHTTPRestInterface")
  
   val appConf = ConfigFactory.load()
@@ -39,7 +38,7 @@ object FbApi extends App{
     case Http.Aborted =>println("http connection aborted!")
     case Http.CommandFailed(msg) => println(s"bind command failed, not able to bound to $ip:$portNo; failure msg- ${msg.failureMessage}")
   }
- //}
+
 }
 
 trait FbRestRouteApi extends HttpService with ActorLogging { a:Actor=>
