@@ -1,0 +1,12 @@
+
+
+Part 1:
+
+Implemented a significant part of Facebook-like REST API using Scala, Akka and Spray. Also a client tester/simulator to test those API features (Mainly to check the scalability). Should be able to query REST http requests from any third-party REST clients such as chrome's Postman.
+
+Basic Ideas of these features are implement as a part of this API: 
+Page, Post, Friend List, Profile, Picture, Album.
+
+Part 2:
+
+Implemented the security layer using both Symmetric encryption and Asymetric encryption to store data in ecrypted format at server, tested this feature with create user.
