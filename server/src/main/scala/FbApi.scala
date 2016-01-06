@@ -17,6 +17,7 @@ import spray.http.StatusCodes
 
 import FbDesign._
 /*
+ * @authors Prashanth and Shivadeep
  * main API file, can be extended to add more features in future
 */
 object FbApi extends App{
