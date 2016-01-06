@@ -10,3 +10,5 @@ Page, Post, Friend List, Profile, Picture, Album.
 Part 2:
 
 Implemented the security layer using both Symmetric encryption and Asymetric encryption to store data in ecrypted format at server, tested this feature with create user.
+
+Refer to Report for building via SBT tool.
