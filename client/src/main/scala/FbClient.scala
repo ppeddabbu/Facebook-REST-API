@@ -21,7 +21,12 @@ import org.apache.commons.codec.binary.Base64
 import java.security._
 
 import fbcrypto._
-
+/*
+* @authors shivdeep and prashanth
+* This simulator code can be extended to test out the features that were implemented at Server.
+* Most of the code calls in this file were commented out to test the specific features.
+* Uncomment them to extend the testing functionality.
+*/
 case class TerminateSimulation()
 case class usersCreatework()
 case class pagesCreatework()
@@ -48,17 +53,17 @@ class Master(workerCount: Int, countUsers: Int, countPosts: Int, countPages: Int
   val ISO_CONST: String = "ISO-8859-1"
 
   val url = "http://localhost:7005"
-  val usr = "shiva"
-  val pwd = "shivaok"
+  // val usr = "shiva"
+  // val pwd = "shivaok"  TODO: for client authentication
   implicit val timeout = Timeout(60 seconds)
   var startTime, endTime: Long = 0
   val workerActor = context.actorOf(Props[Worker].withRouter(RoundRobinPool(workerCount)), name = "Worker")
   var b, d, c: Int = 0
   var f: Int = 0
   /*
-       * h() - decrypts encrypted aeskey  using RSA private key
-     	 * i() - decrypts encrypted input data using AES
-       */
+   * h() - decrypts encrypted aeskey  using RSA private key
+   * i() - decrypts encrypted input data using AES
+   */
   def h(key: String): String = {
 
     RSA.decrypt(RSA.getPrivateKey(), key) //rsa decryption of aeskey
@@ -237,8 +242,6 @@ class Worker extends Actor with ActorLogging {
 
   implicit val timeout = Timeout(60 seconds)
   val url = "http://localhost:7005"
-  val usr = "shiva"
-  val pwd = "shivaok"
 
   var publicKey: PublicKey = null
   //  RSA.genKeys() //TODO: need to move it to master!
